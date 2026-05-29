@@ -1,33 +1,34 @@
-# 🌐 Taller Full Stack 2026  
+# 🌐 Taller Full Stack 2026
+
 ## Aplicación Web: Frontend + Backend + MySQL
 
 ---
 
 ## 📌 Descripción del proyecto
 
-Este proyecto corresponde a una aplicación web **full stack** desarrollada con tecnologías básicas de frontend, backend y base de datos.
+Este proyecto corresponde a una aplicación web full stack desarrollada con tecnologías básicas de frontend, backend y base de datos.
 
 La aplicación permite capturar información desde un formulario web, enviarla al servidor mediante JavaScript y almacenarla en una base de datos MySQL.
 
 En este proyecto se integran los siguientes componentes:
 
-- **Frontend:** interfaz visual creada con HTML, CSS y JavaScript.
-- **Backend:** servidor desarrollado con Node.js y Express.
-- **Base de datos:** almacenamiento de la información en MySQL.
-- **Comunicación:** envío de datos mediante Fetch API en formato JSON.
+* Frontend: interfaz visual creada con HTML, CSS y JavaScript.
+* Backend: servidor desarrollado con Node.js y Express.
+* Base de datos: almacenamiento de la información en MySQL.
+* Comunicación: envío de datos mediante Fetch API en formato JSON.
 
 ---
 
 ## 🧱 Stack tecnológico
 
-| Componente | Tecnología |
-|-----------|------------|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | Node.js + Express |
-| Base de datos | MySQL |
-| Comunicación | Fetch API, HTTP y JSON |
-| Editor recomendado | Visual Studio Code |
-| Servidor local frontend | Live Server |
+| Componente              | Tecnología             |
+| ----------------------- | ---------------------- |
+| Frontend                | HTML, CSS, JavaScript  |
+| Backend                 | Node.js + Express      |
+| Base de datos           | MySQL                  |
+| Comunicación            | Fetch API, HTTP y JSON |
+| Editor recomendado      | Visual Studio Code     |
+| Servidor local frontend | Live Server            |
 
 ---
 
@@ -39,7 +40,7 @@ TALLER_FULL_STACK_2026/
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── server.js
-│   └── node_modules/        # No se incluye en Git
+│   └── node_modules/
 │
 ├── frontend/
 │   ├── index.html
@@ -59,15 +60,15 @@ TALLER_FULL_STACK_2026/
 
 ## ⚙️ Requisitos previos
 
-Antes de ejecutar el proyecto, el estudiante debe tener instalado lo siguiente:
+Antes de ejecutar el proyecto, el estudiante debe tener instalado:
 
-- Node.js  
-- npm  
-- MySQL  
-- MySQL Workbench, recomendado para administrar la base de datos  
-- Visual Studio Code  
-- Extensión Live Server  
-- Git, opcional para clonar el repositorio  
+* Node.js
+* npm
+* MySQL
+* MySQL Workbench
+* Visual Studio Code
+* Extensión Live Server
+* Git
 
 ---
 
@@ -75,47 +76,39 @@ Antes de ejecutar el proyecto, el estudiante debe tener instalado lo siguiente:
 
 ### 1. Clonar el repositorio
 
-Para descargar el proyecto desde GitHub, ejecutar el siguiente comando:
-
 ```bash
 git clone https://github.com/USUARIO/TALLER_FULL_STACK_2026.git
 ```
 
-Luego ingresar a la carpeta del proyecto:
+Luego ingresar a la carpeta:
 
 ```bash
 cd TALLER_FULL_STACK_2026
 ```
 
-> Nota: se debe reemplazar `USUARIO` por el nombre del usuario o cuenta donde esté alojado el repositorio.
-
 ---
 
 ## 🖥️ Configuración y ejecución del backend
 
-El backend se encuentra en la carpeta `backend`.
-
-### 1. Ingresar a la carpeta del backend
+### 1. Ingresar al backend
 
 ```bash
 cd backend
 ```
 
-### 2. Instalar las dependencias del proyecto
+### 2. Instalar dependencias
 
 ```bash
 npm install
 ```
 
-Este comando instala las librerías necesarias definidas en el archivo `package.json`.
-
-### 3. Ejecutar el servidor
+### 3. Ejecutar servidor
 
 ```bash
 node server.js
 ```
 
-Si todo está correctamente configurado, debe aparecer un mensaje similar a:
+Debe aparecer:
 
 ```bash
 Servidor en: http://localhost:3000
@@ -125,9 +118,7 @@ Servidor en: http://localhost:3000
 
 ## 🗄️ Configuración de la base de datos
 
-Para este proyecto se utiliza una base de datos llamada `contactos_db`.
-
-En MySQL Workbench o en la consola de MySQL, ejecutar las siguientes instrucciones:
+Ejecutar en MySQL:
 
 ```sql
 CREATE DATABASE contactos_db;
@@ -142,52 +133,46 @@ CREATE TABLE contactos (
 );
 ```
 
-Esta tabla permitirá almacenar los datos enviados desde el formulario del frontend.
-
 ---
 
-## 🔌 Configuración de la conexión en Node.js
+## 🔌 Configuración de conexión MySQL
 
-La conexión con MySQL se configura en el archivo:
+En el archivo:
 
 ```bash
 backend/server.js
 ```
 
-Dentro del archivo se debe revisar la siguiente sección:
+Configurar:
 
 ```javascript
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root", // Ajustar según la configuración local
+  password: "root",
   database: "contactos_db"
 });
 ```
 
-Es importante verificar que el usuario y la contraseña coincidan con la configuración local de MySQL en cada computador.
+Modificar usuario y contraseña según la configuración local.
 
 ---
 
 ## 🎨 Ejecución del frontend
 
-El frontend se encuentra en la carpeta `frontend`.
-
-Para ejecutarlo:
-
 1. Abrir el proyecto en Visual Studio Code.
-2. Ingresar a la carpeta `frontend`.
-3. Abrir el archivo `index.html`.
-4. Hacer clic derecho sobre el archivo.
-5. Seleccionar la opción **Open with Live Server**.
+2. Ingresar a la carpeta frontend.
+3. Abrir el archivo index.html.
+4. Click derecho.
+5. Seleccionar:
 
-El navegador abrirá la página web de manera local.
+```text
+Open with Live Server
+```
 
 ---
 
-## 🔄 Flujo de funcionamiento de la aplicación
-
-El funcionamiento general del proyecto es el siguiente:
+## 🔄 Flujo de funcionamiento
 
 ```text
 Formulario HTML
@@ -201,91 +186,104 @@ Base de datos MySQL
 Respuesta al usuario
 ```
 
-### Explicación del flujo
+### Explicación
 
-1. El usuario diligencia el formulario en el frontend.
-2. JavaScript captura los datos ingresados.
-3. La función `fetch()` envía la información al backend.
-4. Node.js recibe los datos mediante una ruta de Express.
-5. El backend inserta la información en la tabla `contactos`.
-6. MySQL almacena los datos.
-7. El backend devuelve una respuesta al frontend.
+1. El usuario completa el formulario.
+2. JavaScript captura los datos.
+3. Fetch API envía la información al backend.
+4. Node.js recibe los datos.
+5. Express procesa la petición.
+6. MySQL guarda la información.
+7. El backend responde al frontend.
 
 ---
 
 ## 🧪 Prueba del proyecto
 
-Para verificar que el proyecto funciona correctamente:
-
-1. Ejecutar el backend con:
+### 1. Ejecutar backend
 
 ```bash
 node server.js
 ```
 
-2. Abrir el frontend con Live Server.
+### 2. Abrir frontend con Live Server
 
-3. Llenar el formulario desde la página web.
+### 3. Completar formulario
 
-4. Enviar los datos.
+### 4. Enviar información
 
-5. Verificar en MySQL que la información fue almacenada:
+### 5. Verificar en MySQL
 
 ```sql
 SELECT * FROM contactos;
 ```
 
-Si la información aparece en la tabla, significa que la conexión entre frontend, backend y base de datos funciona correctamente.
+---
+
+## ⚠️ Problemas comunes
+
+| Problema                | Solución                          |
+| ----------------------- | --------------------------------- |
+| Error de conexión MySQL | Revisar usuario y contraseña      |
+| El servidor no inicia   | Verificar instalación de Node.js  |
+| Puerto ocupado          | Cambiar puerto en server.js       |
+| Error CORS              | Verificar configuración de cors() |
+| No se guardan datos     | Revisar consulta SQL              |
+| Frontend no conecta     | Revisar URL de fetch()            |
+| node_modules en GitHub  | Verificar .gitignore              |
 
 ---
 
-## ⚠️ Problemas comunes y posibles soluciones
+## 📌 Recomendaciones
 
-| Problema | Posible solución |
-|---------|------------------|
-| Error de conexión con MySQL | Revisar usuario, contraseña y nombre de la base de datos |
-| El servidor no inicia | Verificar que Node.js esté instalado correctamente |
-| Puerto ocupado | Cambiar el puerto en el archivo `server.js` |
-| Error CORS | Verificar que el backend tenga configurado `cors()` |
-| No se guardan los datos | Revisar la consola del backend y la consulta SQL |
-| El frontend no se comunica con el backend | Verificar la URL usada en `fetch()` |
-| Se subió la carpeta `node_modules` a GitHub | Revisar que esté incluida en el archivo `.gitignore` |
-
----
-
-## 📌 Recomendaciones para los estudiantes
-
-- Ejecutar primero el backend antes de probar el formulario.
-- Verificar que MySQL esté activo.
-- Revisar cuidadosamente el usuario y la contraseña de MySQL.
-- No subir la carpeta `node_modules` al repositorio.
-- Consultar la consola del navegador y la terminal de Node.js cuando ocurra un error.
-- Mantener organizada la estructura de carpetas del proyecto.
+* Ejecutar primero el backend.
+* Verificar que MySQL esté activo.
+* Revisar usuario y contraseña de MySQL.
+* No subir node_modules a GitHub.
+* Revisar consola del navegador y terminal cuando exista un error.
+* Mantener organizada la estructura del proyecto.
 
 ---
 
 ## ✅ Resultado esperado
 
-Al finalizar la configuración, el estudiante debe poder:
+El estudiante debe poder:
 
-- Ejecutar el frontend desde Live Server.
-- Ejecutar el backend con Node.js.
-- Conectar el backend con MySQL.
-- Enviar datos desde un formulario HTML.
-- Guardar los datos en la base de datos.
-- Consultar los registros almacenados en MySQL.
+* Ejecutar frontend con Live Server.
+* Ejecutar backend con Node.js.
+* Conectar backend con MySQL.
+* Enviar datos desde un formulario.
+* Guardar información en la base de datos.
+* Consultar registros almacenados.
 
 ---
 
 ## 📚 Propósito académico
 
-Este taller tiene como propósito que el estudiante comprenda la integración básica entre frontend, backend y base de datos en una aplicación web.
+Este proyecto busca fortalecer conocimientos sobre:
 
-A través del ejercicio, se fortalecen competencias relacionadas con:
+* Desarrollo frontend.
+* Desarrollo backend.
+* Integración con bases de datos.
+* Comunicación cliente-servidor.
+* Flujo de datos en aplicaciones web.
+* Organización de proyectos full stack.
 
-- Estructura de proyectos web.
-- Programación del lado del cliente.
-- Programación del lado del servidor.
-- Conexión con bases de datos.
-- Uso de herramientas de desarrollo.
-- Comprensión del flujo de datos en una aplicación full stack.
+---
+
+## 🆕 Cambios realizados
+
+Se realizaron mejoras visuales y funcionales en la aplicación TechZone, implementando un diseño moderno y responsive utilizando Bootstrap.
+
+### Cambios principales
+
+* Creación de una tienda tecnológica con interfaz moderna.
+* Implementación de menú de navegación funcional.
+* Desarrollo de página de ayuda con preguntas frecuentes.
+* Desarrollo de página de contacto con formulario dinámico.
+* Integración de tarjetas y componentes Bootstrap.
+* Mejora de estilos visuales y experiencia de usuario.
+* Organización de carpetas del proyecto.
+* Actualización y conexión del repositorio en GitHub.
+
+Además, se documentó completamente el proceso de instalación, configuración y ejecución del sistema para facilitar el uso del proyecto.
